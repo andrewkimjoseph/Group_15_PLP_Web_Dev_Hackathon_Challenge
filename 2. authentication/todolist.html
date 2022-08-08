@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TO DO LIST</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Open+Sans:wght@600&family=Rubik:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="todolist.css">
+  <script type="text/javascript" src="todolist.js"></script>
+</head>
+
+<body>
+    <h1>WELCOME TO THE GROUP 15 TO-DO LIST PLATFORM</h1>
+    <div class="container">
+        <div class="row" id="firstpart">
+            <div class="col-12">
+                <div class="container justify-content-center text-center" id="add">
+                    <h3>ADD YOUR ITEMS</h3>
+                    <div class="alert alert-info" role="alert">BE SURE TO FILL ALL DETAILS BEFORE ADDING</div>
+                    <div id="enterTasks">
+                        <div>
+                            <div class="form-group">
+                            <label><b>TODO-TITLE</b></label><input type="text" class="form-control" id="title" oninput="this.value = this.value.toUpperCase()">
+                            </div>
+                            <div class="form-group">
+                            <label> <b>ACTUAL TO-DO ITEM</b></label>
+                            <input type="text" class="form-control" id="actual">
+                            </div>
+                            <div class="form-group">
+                                <label><b>DATE/TIME TO DO IT</b></label>
+                                <input type="date" class="form-control" id="taskdate">
+                            </div>
+                            <button class="btn btn-primary" onclick="mainEvent();">ADD TASK</button>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="row" id="secondpart">
+            <div class="col-6">
+                <div class="container justify-content-center text-center" id="pending">
+                    <h3>VIEW/REMOVE TASKS AT HAND</h3>
+                    <div id="pendingTasks"></div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="container justify-content-center text-center" id="done">
+                    <h3>COMPLETED TASKS</h3>
+                    <div id="completeTasks"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+ 
+   
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+</body>
+
+</html>
