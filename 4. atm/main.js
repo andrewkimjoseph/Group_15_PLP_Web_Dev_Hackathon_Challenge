@@ -101,7 +101,7 @@ function exit() {
             downloadLink.href = window.URL.createObjectURL(new Blob([transactionNotes], {type: "text/plain"}));
             downloadLink.download = "transactionsReceipt.txt";
             downloadLink.click();
-
+            alert('Download Complete, Check Default Download Location for Transaction Text File.')
         }
         alert('SYSTEM CLOSING, LAST VISITED ON' + '\n' + today);
         return loggedOut();
