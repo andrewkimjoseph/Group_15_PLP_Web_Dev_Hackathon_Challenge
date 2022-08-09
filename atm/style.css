@@ -1,0 +1,93 @@
+body {
+  background-color: #74ABDD;
+  font-family: 'Rubik', sans-serif;
+}
+
+.page-heading {
+  background-color: #74ABDD;
+  color: #016ff9;
+  font-weight: 600;
+  letter-spacing: 1px;
+  display: block;
+  text-align: center;
+}
+
+.login-area {
+  background-color: #498DCB;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+input{
+  font-size: 18px;
+  text-align: center;
+}
+button{
+  margin-top: 15px;
+  transform: scale(1.5);
+}
+button:hover{
+  background-color: #269aff;
+  color: white;
+}
+#password-reveal{
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+#show-password{
+  margin-top: 25px;
+}
+@media (max-width: 650px){
+  .login {
+    flex-direction: column;
+  }
+  body, button {
+    font-size: 10px;
+  }
+}
+
+
+/* CREDIT TO https://alvarotrigo.com/blog/css-text-animations/  FOR THE BELOW STYLE */
+/* THIS PART OF THE CODE IS BORROWED IN AN ATTEMPT TO MAKE THE CODE MORE PRESENTABLE*/
+/* REALLY ANIMATES THE WEBSITE'S SIMPLICITY */
+h1{
+  text-transform: uppercase;
+  background-image: linear-gradient(
+   -225deg,
+   #231557 0%,
+   #44107a 29%,
+   #ff1361 67%,
+   #fff800 100%
+ );
+ background-size: auto auto;
+ background-clip: border-box;
+ background-size: 200% auto;
+ color: #fff;
+ background-clip: text;
+ fill: transparent;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: textclip 2s linear infinite;
+ display: inline-block;
+ font-size: 2.25rem;
+ border-radius: 25px;
+}
+
+@keyframes textclip {
+ to {
+   background-position: 200% center;
+ }
+}
+
+img{
+  max-width: 30%;
+  max-height: 30%;
+  border-radius: 25px;
+}
+
+#image{
+  display: flex;
+  justify-content: center;
+}

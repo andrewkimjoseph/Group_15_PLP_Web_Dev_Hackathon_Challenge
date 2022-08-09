@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM PlATFORM</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="./graphics/icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="container">
+        <div class="page-heading">
+            <h1>Hey User, Welcome to the ATM Login Page</h1>
+        </div>
+        <div class="login-area">
+            <div class="enter-password">
+                <h3>
+                    ENTER YOUR ATM PIN:
+                </h3>
+                <div>
+                    <input type="password" id="password" placeholder="ATM Pin Goes Here">
+                </div>
+                <button onclick="login();"><b>LOGIN</b></button>
+            </div>
+        <div id="password-reveal">
+            <div>
+                <button onclick="showPassword();"><b>SHOW DEFAULT SYSTEM PIN</b></button>
+            </div>
+            <div id="show-password"></div>
+        </div>
+    </div>
+    <div id="image">
+        <img src="graphics/atm.jpg" alt="woman in green jacket at an atm">
+    </div>
+</body>
+</html>

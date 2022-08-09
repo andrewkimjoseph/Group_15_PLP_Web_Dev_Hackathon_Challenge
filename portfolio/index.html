@@ -1,0 +1,215 @@
+<!-- MOST OF THE WORK WE DID WAS ASSISTED BY LOTS OF RESEARCH -->
+<!-- SOME COLLECTIONS LIKE THE CAROUSEL ARE LIFTED FROM BOOTSTRAP -->
+<!-- OTHERS LIKE THE FOOTER ARE FROM MDBOOTSTRAP -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="./graphics/icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-light bg-white navbar-expand-md py-0 sticky-top navbar-default navbar-static-top">
+        <img class="navbar-brand" src="graphics/GROUP15LOGO.png" id="logo">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#aboutitems">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="aboutitems">
+            <ul class="navbar-nav mx-auto nav-fill w-100">
+                <li class="nav-item">
+                    <a class="nav-link">HOMEPAGE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">PAGES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">SERVICES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">NEWS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">CONTACTS</a>
+                </li>
+                <li class="nav-item" id="lastitem">
+                    <a class="nav-link">APPOINTMENT</a>
+                </li>
+        </div>
+    </nav>
+    <div id="about">
+      <div>
+        <h3>THE POWERED-YOUTH MENU</h3>
+      </div>
+      <div>
+        <p>
+          <a href="#"><b>HOME</b></a>
+          /
+          <a href="#"><b>PAGES</b></a>
+          /
+          <a href="#"><b>ABOUT</b></a>
+        </p>
+      </div>
+    </div>
+
+    <div class="container text-center lh-lg">
+        <video width="320" height="240" controls autoplay>
+          <source src="graphics/introvideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+        </video>
+        <h1 id="group15">Welcome to The Group 15 Portfolio Website</h1>
+
+        <p>
+            We're thrilled to be part of this competition <br>
+            and it's delightful to be part of the PLP Team <br>
+            Hurrah!
+        </p>
+    </div>
+
+    <div class="container text-center lh-lg">
+      <img src="graphics/signature.png" alt="" style="text-align: center" id="signature">
+    </div>
+
+
+    <!-- THESE CAROUSELS ARE PICKED FROM BOOTSTRAP, THEY MADE IT EASIER FOR US TO MAKE SLIDERS -->
+    <!-- CLEARLY, THE FRAMEWORK HELPS SPEED UP DEVELOPMENT TIME -->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active align-items-center justify-content-center">
+            <img class="mx-auto d-block" src="graphics/logobig.png" alt="First slide" id="image">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="carousel-item align-items-center justify-content-center">
+            <img class="mx-auto d-block" src="graphics/learning.png" alt="First slide" id="image">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="carousel-item align-items-center justify-content-center">
+            <img class="mx-auto d-block" src="graphics/codingisfun.png" alt="First slide" id="image">
+            <div class="carousel-caption">
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon text-success" aria-hidden="true"></span>
+          <span class="sr-only text-success">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only text-success">Next</span>
+        </a>
+    </div>
+
+    
+    <div class="container text-center" id="ourstories">
+        <h1>OUR STORIES</h1>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4" id="cards">
+      <div class="col">
+        <div class="card">          
+          <img src="graphics/kim.JPG" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">ANDREW KIM JOSEPH</h5>
+            <p class="card-text">Python to The Moon and Back, But Can't Reverse a String, so He Has to Use Stack Overflow to Refresh His Memory. Best Mood? The Winning Mood!</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="graphics/saidi.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">VICTOR SAIDI</h5>
+            <p class="card-text">Best in the Working With Web Technologies, Making Websites is Like Taking Candy from a Baby</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <footer class="text-center text-lg-start bg-white text-muted">
+    <section class="d-flex justify-content-center">
+    <img class="navbar-brand" src="graphics/GROUP15LOGO.png" id="footerlogo">
+    </section>
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3 text-grayish"></i>WHO WE ARE
+            </h6>
+            <p>
+              Powered Youth who are looking forward to becoming devs and realizing the #1MillionDevsinAfrica
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              WHAT WE ARE LEARNING
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Dart and Flutter</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Databases</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Python Programming</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Web Technologies</a>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="../portfolio/index.html" class="text-reset" target="_blank">PORTFOLIO</a>
+            </p>
+            <p>
+              <a href="../authentication/index.html" class="text-reset" target="_blank">AUTHENTICATION</a>
+            </p>
+            <p>
+              <a href="../todolist/todolist.html" class="text-reset" target="_blank">TO DO LIST</a>
+            </p>
+            <p>
+              <a href="../atm/index.html" class="text-reset">ATM</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">CONTACT TEAM LEADER</h6>
+            <p><i class="fas fa-home me-3 text-grayish"></i> NAIROBI, KENYA</p>
+            <p>
+              <i class="fas fa-envelope me-3 text-grayish"></i>
+              andrewkimjoseph@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3 text-grayish"></i> + 254 722978938</p>
+            <p><i class="fas fa-print me-3 text-grayish"></i> + 254 729887390</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="#">GROUP 15, PLP WEB DEV HACKATHON</a>
+    </div>
+  </footer>
+<!-- Footer --> 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.min.js" integrity="sha384-PsUw7Xwds7x08Ew3exXhqzbhuEYmA2xnwc8BuD6SEr+UmEHlX8/MCltYEodzWA4u" crossorigin="anonymous"></script>
+    
+</body>
+</html>
