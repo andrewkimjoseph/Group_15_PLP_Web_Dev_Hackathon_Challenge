@@ -1,3 +1,6 @@
+let taskList = {};
+let taskCount = 0;
+
 function mainEvent(){
     // THIS IS THE MAIN EVENT FUNCTION
     // IT DOES THE FOLLOWING:
@@ -46,9 +49,11 @@ function mainEvent(){
         containerDiv.appendChild(taskDiv);
         containerDiv.appendChild(buttonsDiv);
         // GETTING THE VIEW TASK AREA 
-        newTaskArea = document.getElementById('pendingTasks');
+        newTaskArea = document.getElementsByClassName('pendingTasks');
         // THROWING THE CONTAINER DIV THERE
-        newTaskArea.appendChild(containerDiv);
+        newTaskArea[0].appendChild(containerDiv);
+        containerDiv.id = taskCount; // EACH TASK HAS A SERIAL ID
+        taskCount += 1; // INCREMENT TO ENSURE ALL IDs ARE UNIQUE
 
         // CLEARING INPUT BOXES TO ADD THE NEXT TASK
         // GETTING THE CURRENT INPUT FILES AGAIN
@@ -58,7 +63,6 @@ function mainEvent(){
         task.value = "";
         details.value = "";
         date.value = "";
-
         alert('Task Added ➕✅');
 
     // ----------- SECTION 2: CREATING USEFUL BUTTONS TO HELP EDIT (UPDATE), REMOVE, OR MARK A TASK AS COMPLETE ------------- 
@@ -69,10 +73,9 @@ function mainEvent(){
             if (!window.confirm(confirmMessage)){
                 // NOTHING HAPPENS
             } else {
-                completedTaskText = document.getElementById("pendingTasks").firstChild; // WE GET THE TEXT OF THE COMPLETED TASK
+                completedTaskText = document.getElementById(completeButton.parentElement.parentElement.id); // WE GET THE TEXT OF THE COMPLETED TASK
                 completeTasksArea = document.getElementById("completeTasks"); // WE WILL POST THE COMPLETED TASK HERE ONCE IT IS MARKED COMPLETE
                 completeParagraph = document.createElement('p'); // WE CREATE A PARAGRAPH TO POST THE COMPLETED TASK
-    
                 completedTaskText.removeChild(completedTaskText.lastChild) // WE NEED TO REMOVE ALL BUTTONS BEFORE WE POST THE TASK
                 // REMEMBER THAT THEY ARE ALL ONE UNIT
                 completeParagraph.innerHTML = completedTaskText.textContent + ' ✅'; //THE COMPLETED TASK WILL BE POSTED IN
@@ -99,10 +102,17 @@ function mainEvent(){
             let savedTask = newTask; // NOT NECESSARY, BUT GOOD FOR CODE READABILITY
             //SAVED TASK STORES THE VALUE OF THE TASK CREATED
             let taskChanges = prompt('Edit the Task Here: ', savedTask);
+
             if(taskChanges){
-                taskButton.textContent = taskChanges;
-                alert('Tasks Details Changed ✍️')
-            }else{
+                // CHECK IF TASKS HAS REALLY CHANGED
+                // ALERTS DIFFERENT MESSAGE
+                if (taskChanges == savedTask){
+                    alert('No Changes Effected ✍️')
+                } else {
+                    taskButton.textContent = taskChanges;
+                    alert('Tasks Details Changed ✍️');
+                }
+            } else{
                 taskChanges = savedTask;
             }
         });

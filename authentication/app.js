@@ -29,7 +29,7 @@ function login(){
 
     if (name == username && email == emailAddress && pass == password){
         alert('Credentials Entered Successfully, Click OK to Continue to To-Do List Website')
-        window.location.href = "../todolist/todolist.html";
+        window.location.href = "../todolist/index.html";
     } else {
         alert("Input Value(s) Does Not Match / One or More Credentials Missing");
     }
