@@ -25,7 +25,7 @@ input{
   font-size: 18px;
 }
 button{
-  margin: 25px;
+  margin-top: 15px;
   transform: scale(1.5);
 }
 button:hover{
@@ -34,7 +34,7 @@ button:hover{
 }
 #password-reveal{
   margin-top: 25px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 #show-password{
   margin-top: 25px;
@@ -48,6 +48,10 @@ button:hover{
   }
 }
 
+
+/* CREDIT TO https://alvarotrigo.com/blog/css-text-animations/  FOR THE BELOW STYLE */
+/* THIS PART OF THE CODE IS BORROWED IN AN ATTEMPT TO MAKE THE CODE MORE PRESENTABLE*/
+/* REALLY ANIMATES THE WEBSITE'S SIMPLICITY */
 h1{
   text-transform: uppercase;
   background-image: linear-gradient(
@@ -68,10 +72,22 @@ h1{
  animation: textclip 2s linear infinite;
  display: inline-block;
  font-size: 2.25rem;
+ border-radius: 25px;
 }
 
 @keyframes textclip {
  to {
    background-position: 200% center;
  }
+}
+
+img{
+  max-width: 50%;
+  max-height: 50%;
+  border-radius: 25px;
+}
+
+#image{
+  display: flex;
+  justify-content: center;
 }

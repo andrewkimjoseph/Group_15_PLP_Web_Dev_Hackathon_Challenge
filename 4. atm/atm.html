@@ -25,39 +25,39 @@
         <div class="withdraw">
             <div>
                <h2>WITHDRAW</h2>
-               <span class="iconify" data-icon="uil:money-withdrawal" style="color: #019267;"></span>
+               <img src="moneyout.jpg" alt="Money Coming Out" class="images">
             </div>
             <div>
                 <div>
                     <label>ENTER AMOUNT: </label>
                 </div>
                 <div>
-                    <input type="number" id="moneyout">
+                    <input type="number" id="moneyout" placeholder="Money Out">
                 </div>
             </div>
             <div>
-                <button onclick="withdraw();"><h3>PROCEED</h3></button>
+                <button onclick="withdraw();" id="proceed"><h3>PROCEED</h3></button>
             </div>
         </div>
         <div class="topup">
             <div>
                 <h2>TOP UP</h2>
-                <span class="iconify" data-icon="uil:money-withdrawal" style="color: #019267;"></span>
-             </div>
+                <img src="moneyin.jpg" alt="Money Coming In" class="images">
+            </div>
              <div>
                  <div>
                      <label>ENTER AMOUNT: </label>
                  </div>
                  <div>
-                     <input type="number" id="moneyin">
+                     <input type="number" id="moneyin" placeholder="Money In">
                  </div>
              </div>
             <div>
-                <button onclick="deposit();"><h3>PROCEED</h3></button>
+                <button onclick="deposit();" id="proceed"><h3>PROCEED</h3></button>
             </div>
         </div>
     </section>
-    <section id ="exit">
+    <section id="exit">
         <button onclick="exit();"><h2>EXIT SYSTEM</h2></button>
     </section>
 

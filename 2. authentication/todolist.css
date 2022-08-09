@@ -28,6 +28,9 @@ button:hover{
     }
 }
 
+/* CREDIT TO https://alvarotrigo.com/blog/css-text-animations/  FOR THE BELOW STYLE */
+/* THIS PART OF THE CODE IS BORROWED IN AN ATTEMPT TO MAKE THE CODE MORE PRESENTABLE*/
+/* REALLY ANIMATES THE WEBSITE'S SIMPLICITY */
 h1{
     text-transform: uppercase;
     background-image: linear-gradient(
