@@ -34,7 +34,6 @@
 ![image](https://user-images.githubusercontent.com/91619206/183889441-925311a5-28d4-45b8-b8e5-38a5d62ad9f1.png)
 ![image](https://user-images.githubusercontent.com/91619206/183889691-f7cefd6b-ad7c-40e2-ab8d-3cbc6c1c4f8d.png)
 
-
 ## EXITING SYSTEM USING THE EXIT BUTTON
 ![image](https://user-images.githubusercontent.com/91619206/183889776-71e69c02-b602-4810-88a5-777f80df989f.png)
 
@@ -47,3 +46,5 @@
 
 
 
+## AFTER EXITING, THE DATE AND TIME DETAILS ARE SHOWN AS FOLLOWS:
+![image](https://user-images.githubusercontent.com/91619206/183922929-d4eb5450-4d9c-4a17-8f54-c84f523def7e.png)
