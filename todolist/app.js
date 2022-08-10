@@ -1,5 +1,7 @@
-let taskList = {};
-let taskCount = 0;
+// THIS JS FILE HAS THE MOST AMOUNT OF WORK DONE
+
+let taskList = {}; // WILL STORE ALL TASKS IN KEY-VALUE PAIR FASHION
+let taskCount = 0; // HELPS TO GENERATE UNIQUE IDS FOR THE TASKS
 
 function mainEvent(){
     // THIS IS THE MAIN EVENT FUNCTION
@@ -42,8 +44,8 @@ function mainEvent(){
             // WE NEED A DIV TO STORE THE TASK AND THE BUTTONS
             // THEN WE'LL REFERENCE IT WHEN TRYING TO DELETE THE TASK
             let taskDiv = document.createElement('div'); // WE CREATE A DIV TO STORE THE TASK
-            let buttonsDiv = document.createElement('div'); //ANOTHER DIV FOR THE BUTTONS
-            let containerDiv = document.createElement('div'); //WILL CARY BOTH DIVS ABOVE
+            let buttonsDiv = document.createElement('div'); // ANOTHER DIV FOR THE BUTTONS
+            let containerDiv = document.createElement('div'); // ANOTHER DIV TO CARRY BOTH DIVS ABOVE
 
             //THROWING THE TASK INTO THE TASK DIV
             taskDiv.appendChild(taskParagraph);
@@ -61,10 +63,13 @@ function mainEvent(){
             containerDiv.id = taskCount; // EACH TASK HAS A SERIAL ID
             taskCount += 1; // INCREMENT TO ENSURE ALL IDs ARE UNIQUE
 
-            taskList[containerDiv.id] = newTask;
-            console.log(taskList);
-            // CLEARING INPUT BOXES TO ADD THE NEXT TASK
+            // UPDATING OBJECT LIST WITH THE NEW TASK
+            // THE DATA IS STORED IN KEY VALUE PAIRS
+            // LIKE THIS: {1 : 'CODING | JAVA | 2022-08-06'}
+            taskList[containerDiv.id] = newTask; // SO HERE IS LIKE THIS, tasklist[1] = 'CODING | JAVA | 2022-08-06'
+
             // GETTING THE CURRENT INPUT FILES AGAIN
+            // TO HELP WITH CLEARING INPUT BOXES TO ADD THE NEXT TASK
             let task = document.getElementById('title');
             let details = document.getElementById('actual');
             let date = document.getElementById('taskdate');
@@ -75,7 +80,6 @@ function mainEvent(){
             alert('Task Added ✅ / Readded ⏳');
 
     // ----------- SECTION 2: CREATING USEFUL BUTTONS TO HELP EDIT (UPDATE), REMOVE, OR MARK A TASK AS COMPLETE ------------- 
-        
     // ALL THESE FUNCTIONS ARE TIED TO THE THREE BUTTONS WE CREATED
         completeButton.addEventListener("click", () => {
             // HELPS TO MARK AN ITEM COMPLETE AND REMOVE IT FROM THE LIST
@@ -92,30 +96,34 @@ function mainEvent(){
                 completeParagraph.innerHTML = completedTaskText.textContent + ' ✅'; //THE COMPLETED TASK WILL BE POSTED IN
                 // THE COMPLETED TASK  WITH A ✅ NEXT TO IT
 
+                // CREATING THE UNMARKED BUTTON
                 let unmarkButton = document.createElement("button");
-                let completeTaskDiv = document.createElement('div'); // WE CREATE A DIV TO STORE THE TASK
+                let completeTaskDiv = document.createElement('div'); // WE CREATE A DIV TO STORE THE COMPLETED
                 let unmarkButtonDiv = document.createElement('div'); //ANOTHER DIV FOR THE BUTTONS
-                let completeContainerDiv = document.createElement('div'); //WILL CARY BOTH DIVS ABOVE
-                completeContainerDiv.id = "M" + parentId;
+                let completeContainerDiv = document.createElement('div'); // WILL CARY BOTH DIVS ABOVE
+                completeContainerDiv.id = "M" + parentId; // THE COMPELETE TASK GOES INTO A DIV WITH A UNIQUE ID
+                // SO, IF THE TASK WAS LIKE THIS 1 : 'CODING | JAVA | 2022-08-06'
+                // THE NEW COMPLETE DIV HAS THE ID "M1"
+                // WILL HELP TO GET IT LATER
 
                 completeTaskDiv.appendChild(completeParagraph); // ADDING THE CLEAN COMPLETED TASK TO THE COMPLETE TASKS AREA
                 unmarkButton.textContent = "⏳ Unmark as Done";
-                unmarkButtonDiv.appendChild(unmarkButton); // THIS WILL HELP TO UNMARK THE TASK AS DONE
-                completeContainerDiv.appendChild(completeTaskDiv);
-                completeContainerDiv.appendChild(unmarkButtonDiv);
-                completeTasksArea.appendChild(completeContainerDiv);
+                unmarkButtonDiv.appendChild(unmarkButton); // ADD THE UNMARK BUTTON TO THE DIV
+                completeContainerDiv.appendChild(completeTaskDiv); // PACKING COMPLETE TASK DETAIL INTO A DIV
+                completeContainerDiv.appendChild(unmarkButtonDiv); // THEN THE BUTTONS INTO ANOTHER DIV
+                completeTasksArea.appendChild(completeContainerDiv); // PACKING EVERYTHING INTO THE DIV WITH THE UNIQUE ID
                 
                 // ATTEMPTING TO REMOVE COMPLETED TASK FROM OUR taskList Object
                 completeContainerDiv.id  = completeContainerDiv.id.replace("M", "");
-                delete taskList[completeContainerDiv.id];
-                console.log(taskList);
+                delete taskList[completeContainerDiv.id]; // REMOVES IT COMPLETELY
 
                 containerDiv.remove(); // THE CONTAINER DIV WILL BE REMOVED FROM THE TASKS-AT-HAND AREA
                 alert('Task Completed ✅');
 
                 // ONCE A TASK HAS BEEN MARKED AS COMPLETE
                 // IT MOVES TO THE COMPLETE TASK AREA
-                // THEN THE BELOW FUNCTION ADD A 
+                // THEN THE BELOW FUNCTION ADDS THE UNMARK BUTTON
+                // AND GIVES IT FUNCTIONALITY
                 unmarkButton.addEventListener('click', function handleClick() {
                     completeContainerDiv = document.getElementById(unmarkButton.parentElement.parentElement.id);
                     completeContainerDiv.removeChild(completeContainerDiv.lastChild);
@@ -131,6 +139,7 @@ function mainEvent(){
         });
 
         deleteButton.addEventListener("click", () => {
+            // TRIGGERED WHEN THE USER CLICKS DELETE
             // HELPS REMOVE AN ITEM FROM THE TASKS-AT-HAND AREA
             confirmMessage = 'Are You Sure You Want to Delete The Task? 🗑️';
             if (window.confirm(confirmMessage)){
@@ -138,13 +147,13 @@ function mainEvent(){
                 delete taskList[containsTask];
                 containerDiv.remove(); // THE CONTAINER DIV WILL BE REMOVED FROM THE TASKS-AT-HAND AREA
                 alert('Task Removed ➖🗑️');
-                console.log(taskExists);
             } else {
                 // NOTHING HAPPENS
             }
         });
 
         editButton.addEventListener('click', function handleClick() {
+            // TRIGGERED WHEN THE USER CLICKS EDIT
             // HELPS A USER TO EDIT THE TASK USING A BROWSER PROMPT
             let containsTask = editButton.parentElement.parentElement.id;
             let savedTask = document.getElementById(containsTask);
@@ -158,16 +167,14 @@ function mainEvent(){
                     alert('No Changes Effected ✍️');
                 } else {
                     taskParagraph.textContent = taskChanges;
-                    taskList[editButton.parentElement.parentElement.id] = taskChanges;
+                    taskList[editButton.parentElement.parentElement.id] = taskChanges; // EFFECTS CHANGES ON THE LIST
                     alert('Tasks Details Changed ✍️');
-                    console.log(taskList);
                 }
             } else{
-                taskChanges = savedTask;
+                taskChanges = savedTask; // IF NO CHANGES HAPPEN
             }
         });
         }
-
         addTask(); // THIS CALL TRIGGERS THE FOLLOWING:
         // IT CREATES A ITEM TOGETHER WITH THE THREE BUTTONS
         // AND IT CREATES FUNCTIONS FOR EACH OF THISE BUTTONS
