@@ -12,7 +12,7 @@ function loggedIn(){
 function loggedOut(){
     // TRIGGERED WHEN EXIT PROCESS IS COMPLETE
     // BASICALLY TAKES YOU BACK TO THE PASSWORD PAGE
-    window.location.href = './index.html';
+    window.location.href = '../index.html';
 }
 function login(){
     // CHECKS IF ENTERED PASSWORD MATCHES SAVED PASSWORD
