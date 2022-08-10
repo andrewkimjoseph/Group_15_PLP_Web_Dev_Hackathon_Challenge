@@ -6,3 +6,10 @@ NOTE: To avoid any file breaking, download the repo as whole and not single file
 1. Click the green 'Code' button
 2. Then, download as a ZIP file
 3. Finally, enjoy the files
+
+# GROUP MEMBERS
+1. Andrew Kim Joseph
+2. Samuel Ndiema
+3. Saidi Victor
+4. Sarah Njeri
+5. John Ngumbau
