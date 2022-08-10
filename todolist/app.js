@@ -27,10 +27,11 @@ function mainEvent(){
         // AND WHEN A TASK IS BEING UNMARKED AS DONE, SO IT GOES BACK AS "NEW TASK"
         function addTask(taskToAdd=newTask) {
             // OUR TASK GOES INTO A PARAGRAPH
+
             let taskParagraph = document.createElement("p");
             // SOME LITTLE STYLING
             taskParagraph.style.marginBottom = "0";
-            taskParagraph.textContent = newTask;
+            taskParagraph.textContent = taskToAdd;
             // EACH TIME A TASK IS CREATED, THREE BUTTONS ARE CREATED ALONG WITH IT
             // 1. THE MARK COMPLETED TASK BUTTON ✅
             let completeButton = document.createElement("button");
@@ -62,7 +63,7 @@ function mainEvent(){
             newTaskArea.appendChild(containerDiv);
             containerDiv.id = taskCount; // EACH TASK HAS A SERIAL ID
             taskCount += 1; // INCREMENT TO ENSURE ALL IDs ARE UNIQUE
-
+            containerDiv.style.border = "solid #F65A83";
             // UPDATING OBJECT LIST WITH THE NEW TASK
             // THE DATA IS STORED IN KEY VALUE PAIRS
             // LIKE THIS: {1 : 'CODING | JAVA | 2022-08-06'}
