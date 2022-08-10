@@ -8,4 +8,3 @@
 ### And this is the same website on a small screen (tested using iPhone X):
 
 ![smallscreen](https://user-images.githubusercontent.com/91619206/183879702-5b4cf771-3b46-4219-83da-7837feb8e863.png)
-
