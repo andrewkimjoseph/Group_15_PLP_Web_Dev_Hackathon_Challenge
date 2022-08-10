@@ -144,7 +144,7 @@ function mainEvent(){
             confirmMessage = 'Are You Sure You Want to Delete The Task? 🗑️';
             if (window.confirm(confirmMessage)){
                 let containsTask = deleteButton.parentElement.parentElement.id;
-                delete taskList[containsTask];
+                delete taskList[containsTask]; // REMOVES TASK FROM taskList Object
                 containerDiv.remove(); // THE CONTAINER DIV WILL BE REMOVED FROM THE TASKS-AT-HAND AREA
                 alert('Task Removed ➖🗑️');
             } else {

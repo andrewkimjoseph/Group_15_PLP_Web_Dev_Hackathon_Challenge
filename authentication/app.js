@@ -35,7 +35,7 @@ function login(){
         alert('Credentials Entered Successfully, Click OK to Continue to To-Do List Website')
         window.location.href = "../todolist/index.html"; // OPEN TO DO LIST
     } else {
-        alert("Input Value(s) Does Not Match / One or More Credentials Missing");
+        alert("Input Value(s) Does Not Match / One or More Credentials Missing"); // MESSAGE IF THE DETAILS DO NOT MATCH
     }
 }
 
