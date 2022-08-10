@@ -18,71 +18,115 @@ function mainEvent(){
     } else {
         //OUR WAY OF PRESENTING THE TASK ON THE BROWSER USING THE DETAILS ENTERED
         newTask = taskTitle + '  |  ' + taskDetails + '  |  ' + taskDate;
-        // OUR TASK GOES INTO A BUTTON
-        let taskButton = document.createElement("p");
-        // SOME LITTLE STYLING
-        taskButton.style.marginBottom = "0";
-        taskButton.textContent = newTask;
-        // EACH TIME A TASK IS CREATED, THREE BUTTONS ARE CREATED ALONG WITH IT
-        // 1. THE MARK COMPLETED TASK BUTTON ✅
-        let completeButton = document.createElement("button");
-        completeButton.textContent = "✅ Done";
-        // 2. THE EDIT TASK BUTTON ✍️
-        let editButton = document.createElement("button");
-        editButton.textContent = "✍️ Edit";
-        // 3. THE DELETE TASK BUTTON 🗑️ 
-        let deleteButton = document.createElement("button");
-        deleteButton.textContent = "🗑️ Delete";
-        // WE NEED A DIV TO STORE THE TASK AND THE BUTTONS
-        // THEN WE'LL REFERENCE IT WHEN TRYING TO DELETE THE TASK
-        let taskDiv = document.createElement('div'); // WE CREATE A DIV TO STORE THE TASK
-        let buttonsDiv = document.createElement('div'); //ANOTHER DIV FOR THE BUTTONS
-        let containerDiv = document.createElement('div'); //WILL CARY BOTH DIVS ABOVE
+        // NOW, THE BELOW FUNCTION HAS BEEN WRAPPED TOGETHER
+        // BECAUSE IT'LL BE USED AGAIN BY ANOTHER BUTTON
+        // IT IS CALLED TWICE:
+        // WHEN A NEW TASK IS BEING ADDED
+        // AND WHEN A TASK IS BEING UNMARKED AS DONE, SO IT GOES BACK AS "NEW TASK"
+        function addTask(taskToAdd=newTask) {
+            // OUR TASK GOES INTO A PARAGRAPH
+            let taskParagraph = document.createElement("p");
+            // SOME LITTLE STYLING
+            taskParagraph.style.marginBottom = "0";
+            taskParagraph.textContent = newTask;
+            // EACH TIME A TASK IS CREATED, THREE BUTTONS ARE CREATED ALONG WITH IT
+            // 1. THE MARK COMPLETED TASK BUTTON ✅
+            let completeButton = document.createElement("button");
+            completeButton.textContent = "✅ Done";
+            // 2. THE EDIT TASK BUTTON ✍️
+            let editButton = document.createElement("button");
+            editButton.textContent = "✍️ Edit";
+            // 3. THE DELETE TASK BUTTON 🗑️ 
+            let deleteButton = document.createElement("button");
+            deleteButton.textContent = "🗑️ Delete";
+            // WE NEED A DIV TO STORE THE TASK AND THE BUTTONS
+            // THEN WE'LL REFERENCE IT WHEN TRYING TO DELETE THE TASK
+            let taskDiv = document.createElement('div'); // WE CREATE A DIV TO STORE THE TASK
+            let buttonsDiv = document.createElement('div'); //ANOTHER DIV FOR THE BUTTONS
+            let containerDiv = document.createElement('div'); //WILL CARY BOTH DIVS ABOVE
 
-        //THROWING THE TASK INTO THE TASK DIV
-        taskDiv.appendChild(taskButton);
-        // THROWING THE BUTTONS INTO THE BUTTONS DIV
-        buttonsDiv.appendChild(completeButton)
-        buttonsDiv.appendChild(editButton);
-        buttonsDiv.appendChild(deleteButton);
-        // PUTTING BOTH DIVS THAT CONTAIN TASK AND BUTTON
-        containerDiv.appendChild(taskDiv);
-        containerDiv.appendChild(buttonsDiv);
-        // GETTING THE VIEW TASK AREA 
-        newTaskArea = document.getElementsByClassName('pendingTasks');
-        // THROWING THE CONTAINER DIV THERE
-        newTaskArea[0].appendChild(containerDiv);
-        containerDiv.id = taskCount; // EACH TASK HAS A SERIAL ID
-        taskCount += 1; // INCREMENT TO ENSURE ALL IDs ARE UNIQUE
+            //THROWING THE TASK INTO THE TASK DIV
+            taskDiv.appendChild(taskParagraph);
+            // THROWING THE BUTTONS INTO THE BUTTONS DIV
+            buttonsDiv.appendChild(completeButton)
+            buttonsDiv.appendChild(editButton);
+            buttonsDiv.appendChild(deleteButton);
+            // PUTTING BOTH DIVS THAT CONTAIN TASK AND BUTTON
+            containerDiv.appendChild(taskDiv);
+            containerDiv.appendChild(buttonsDiv);
+            // GETTING THE VIEW TASK AREA 
+            newTaskArea = document.getElementById('pendingTasks');
+            // THROWING THE CONTAINER DIV THERE
+            newTaskArea.appendChild(containerDiv);
+            containerDiv.id = taskCount; // EACH TASK HAS A SERIAL ID
+            taskCount += 1; // INCREMENT TO ENSURE ALL IDs ARE UNIQUE
 
-        // CLEARING INPUT BOXES TO ADD THE NEXT TASK
-        // GETTING THE CURRENT INPUT FILES AGAIN
-        let task = document.getElementById('title');
-        let details = document.getElementById('actual');
-        let date = document.getElementById('taskdate');
-        task.value = "";
-        details.value = "";
-        date.value = "";
-        alert('Task Added ➕✅');
+            taskList[containerDiv.id] = newTask;
+            console.log(taskList);
+            // CLEARING INPUT BOXES TO ADD THE NEXT TASK
+            // GETTING THE CURRENT INPUT FILES AGAIN
+            let task = document.getElementById('title');
+            let details = document.getElementById('actual');
+            let date = document.getElementById('taskdate');
+            task.value = "";
+            details.value = "";
+            date.value = "";
+
+            alert('Task Added ✅ / Readded ⏳');
 
     // ----------- SECTION 2: CREATING USEFUL BUTTONS TO HELP EDIT (UPDATE), REMOVE, OR MARK A TASK AS COMPLETE ------------- 
-        // ALL THESE FUNCTIONS ARE TIED TO THE THREE BUTTONS WE CREATED
+        
+    // ALL THESE FUNCTIONS ARE TIED TO THE THREE BUTTONS WE CREATED
         completeButton.addEventListener("click", () => {
             // HELPS TO MARK AN ITEM COMPLETE AND REMOVE IT FROM THE LIST
             confirmMessage = "Are You Sure You're Done? ";
-            if (!window.confirm(confirmMessage)){
+            if (!window.confirm(confirmMessage)) {
                 // NOTHING HAPPENS
             } else {
-                completedTaskText = document.getElementById(completeButton.parentElement.parentElement.id); // WE GET THE TEXT OF THE COMPLETED TASK
+                parentId = completeButton.parentElement.parentElement.id;
+                completedTaskText = document.getElementById(parentId); // WE GET THE TEXT OF THE COMPLETED TASK
                 completeTasksArea = document.getElementById("completeTasks"); // WE WILL POST THE COMPLETED TASK HERE ONCE IT IS MARKED COMPLETE
                 completeParagraph = document.createElement('p'); // WE CREATE A PARAGRAPH TO POST THE COMPLETED TASK
                 completedTaskText.removeChild(completedTaskText.lastChild) // WE NEED TO REMOVE ALL BUTTONS BEFORE WE POST THE TASK
                 // REMEMBER THAT THEY ARE ALL ONE UNIT
                 completeParagraph.innerHTML = completedTaskText.textContent + ' ✅'; //THE COMPLETED TASK WILL BE POSTED IN
-                // THE COMPLETED TASK AREA WITH A ✅ NEXT TO IT
+                // THE COMPLETED TASK  WITH A ✅ NEXT TO IT
+
+                let unmarkButton = document.createElement("button");
+                let completeTaskDiv = document.createElement('div'); // WE CREATE A DIV TO STORE THE TASK
+                let unmarkButtonDiv = document.createElement('div'); //ANOTHER DIV FOR THE BUTTONS
+                let completeContainerDiv = document.createElement('div'); //WILL CARY BOTH DIVS ABOVE
+                completeContainerDiv.id = "M" + parentId;
+
+                completeTaskDiv.appendChild(completeParagraph); // ADDING THE CLEAN COMPLETED TASK TO THE COMPLETE TASKS AREA
+                unmarkButton.textContent = "⏳ Unmark as Done";
+                unmarkButtonDiv.appendChild(unmarkButton); // THIS WILL HELP TO UNMARK THE TASK AS DONE
+                completeContainerDiv.appendChild(completeTaskDiv);
+                completeContainerDiv.appendChild(unmarkButtonDiv);
+                completeTasksArea.appendChild(completeContainerDiv);
+                
+                // ATTEMPTING TO REMOVE COMPLETED TASK FROM OUR taskList Object
+                completeContainerDiv.id  = completeContainerDiv.id.replace("M", "");
+                delete taskList[completeContainerDiv.id];
+                console.log(taskList);
+
                 containerDiv.remove(); // THE CONTAINER DIV WILL BE REMOVED FROM THE TASKS-AT-HAND AREA
-                completeTasksArea.appendChild(completeParagraph); // ADDING THE CLEAN COMPLETED TASK TO THE COMPLETE TASKS AREA
-                alert('Way to Go!')
+                alert('Task Completed ✅');
+
+                // ONCE A TASK HAS BEEN MARKED AS COMPLETE
+                // IT MOVES TO THE COMPLETE TASK AREA
+                // THEN THE BELOW FUNCTION ADD A 
+                unmarkButton.addEventListener('click', function handleClick() {
+                    completeContainerDiv = document.getElementById(unmarkButton.parentElement.parentElement.id);
+                    completeContainerDiv.removeChild(completeContainerDiv.lastChild);
+                    let cleanComplete = completeContainerDiv.firstChild.firstChild.textContent;
+                    cleanComplete = cleanComplete.replace(' ✅', '');
+                    completeContainerDiv.firstChild.firstChild.innerHTML = cleanComplete;
+                    completeContainerDiv.remove(); // REMOVES TASK FROM COMPLETE AREA
+                    addTask(cleanComplete); // TRIGGERS THE FUNCTION TO ADD A NEW TASK
+                    // BUT NOT A NEW ONE IN THIS CASE
+                    // IN THIS CASE, IT WILL ADD THE COMPLETED ITEM BACK
+                });
             }
         });
 
@@ -90,31 +134,42 @@ function mainEvent(){
             // HELPS REMOVE AN ITEM FROM THE TASKS-AT-HAND AREA
             confirmMessage = 'Are You Sure You Want to Delete The Task? 🗑️';
             if (window.confirm(confirmMessage)){
+                let containsTask = deleteButton.parentElement.parentElement.id;
+                delete taskList[containsTask];
                 containerDiv.remove(); // THE CONTAINER DIV WILL BE REMOVED FROM THE TASKS-AT-HAND AREA
-                alert('Task Removed ➖🗑️')
-            } else{
+                alert('Task Removed ➖🗑️');
+                console.log(taskExists);
+            } else {
                 // NOTHING HAPPENS
             }
         });
 
         editButton.addEventListener('click', function handleClick() {
             // HELPS A USER TO EDIT THE TASK USING A BROWSER PROMPT
-            let savedTask = newTask; // NOT NECESSARY, BUT GOOD FOR CODE READABILITY
+            let containsTask = editButton.parentElement.parentElement.id;
+            let savedTask = document.getElementById(containsTask);
+            savedTask = savedTask.firstChild.firstChild.textContent;
             //SAVED TASK STORES THE VALUE OF THE TASK CREATED
             let taskChanges = prompt('Edit the Task Here: ', savedTask);
-
             if(taskChanges){
                 // CHECK IF TASKS HAS REALLY CHANGED
                 // ALERTS DIFFERENT MESSAGE
                 if (taskChanges == savedTask){
-                    alert('No Changes Effected ✍️')
+                    alert('No Changes Effected ✍️');
                 } else {
-                    taskButton.textContent = taskChanges;
+                    taskParagraph.textContent = taskChanges;
+                    taskList[editButton.parentElement.parentElement.id] = taskChanges;
                     alert('Tasks Details Changed ✍️');
+                    console.log(taskList);
                 }
             } else{
                 taskChanges = savedTask;
             }
         });
+        }
+
+        addTask(); // THIS CALL TRIGGERS THE FOLLOWING:
+        // IT CREATES A ITEM TOGETHER WITH THE THREE BUTTONS
+        // AND IT CREATES FUNCTIONS FOR EACH OF THISE BUTTONS
     }
 }

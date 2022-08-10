@@ -60,7 +60,8 @@ body{
 
 a:hover{
     background-color: #fff800;
-    color: white; 
+    color: white;
+    margin: 5px;
 }
 
 /* WE PICKED THIS STYLE FROM AN ONLINE SOURCE TO IMPROVE THE UI*/
