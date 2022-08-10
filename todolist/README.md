@@ -1,5 +1,8 @@
 # TO-DO LIST CHALLENGE
 
+#### WE'VE PREPARED AN INTRO VIDEO FOR YOU, FEEL FREE TO WATCH IT:
+##### https://drive.google.com/file/d/10cI2VOFRG70ego6JNb9eFa8NyFlCHBoi/view?usp=sharing
+
 ## WEBSITE ON A LARGE SCREEN
 
 ![image](https://user-images.githubusercontent.com/91619206/183885395-211f200b-32d8-42cf-8adf-42751d227225.png)
